@@ -64,6 +64,16 @@ document.addEventListener('click', (event) => {
   showSection(link.hash, true);
 });
 
+document.querySelectorAll('[data-profile]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const profile = document.getElementById(button.dataset.profile);
+    if (profile instanceof HTMLDialogElement && !profile.open) {
+      profile.showModal();
+      profile.scrollTop = 0;
+    }
+  });
+});
+
 const year = document.querySelector('#year');
 if (year) year.textContent = String(new Date().getFullYear());
 

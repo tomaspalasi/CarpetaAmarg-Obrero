@@ -10,9 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=team-contacts" />
+    <link rel="stylesheet" href="./styles.css?v=team-profiles" />
     <script src="./projects.js?v=team-contacts" defer></script>
-    <script src="./app.js?v=team-contacts" defer></script>
+    <script src="./app.js?v=team-profiles" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -74,10 +74,30 @@
       <section class="about paper-texture section-pad" id="nosotros" aria-labelledby="about-title">
         <div class="about-topline"><h2 id="about-title">About</h2><span class="heading-divider" aria-hidden="true"></span><h3>El equipo</h3><p>Cuatro miradas, un mismo colectivo. Un espacio para mostrar quiénes somos y lo que hacemos en conjunto.</p></div>
         <div class="team-grid">
-          <article class="person-card person-card--one"><div class="person-art"><span class="person-initial">D</span><span class="person-art-note">Retrato por definir</span></div><div class="person-name"><span>Dani</span><span class="person-star" aria-hidden="true">✳</span></div><h3>Dani Pedraza</h3><p>Integrante de Amarg* Obrero</p></article>
-          <article class="person-card person-card--two"><div class="person-art"><span class="person-initial">F</span><span class="person-art-note">Retrato por definir</span></div><div class="person-name"><span>Fran</span><span class="person-star" aria-hidden="true">✳</span></div><h3>Fran Rodriguez</h3><p>Integrante de Amarg* Obrero</p></article>
-          <article class="person-card person-card--three"><div class="person-art"><span class="person-initial">J</span><span class="person-art-note">Retrato por definir</span></div><div class="person-name"><span>Juani</span><span class="person-star" aria-hidden="true">✳</span></div><h3>Juani Cersosimo</h3><p>Integrante de Amarg* Obrero</p></article>
-          <article class="person-card person-card--four"><div class="person-art"><span class="person-initial">T</span><span class="person-art-note">Retrato por definir</span></div><div class="person-name"><span>Tomi</span><span class="person-star" aria-hidden="true">✳</span></div><h3>Tomi Palasi</h3><p>Integrante de Amarg* Obrero</p></article>
+          <article class="person-card">
+            <button class="person-open" type="button" data-profile="profile-dani" aria-haspopup="dialog" aria-controls="profile-dani">
+              <span class="person-art"><img src="./assets/equipo/dani-personaje.webp" alt="" width="316" height="395" loading="lazy" decoding="async" /></span>
+              <span class="person-name">Dani Pedraza <span class="person-star" aria-hidden="true">✳</span></span>
+            </button>
+          </article>
+          <article class="person-card">
+            <button class="person-open" type="button" data-profile="profile-fran" aria-haspopup="dialog" aria-controls="profile-fran">
+              <span class="person-art"><img src="./assets/equipo/fran-personaje.webp" alt="" width="317" height="393" loading="lazy" decoding="async" /></span>
+              <span class="person-name">Fran Rodriguez <span class="person-star" aria-hidden="true">✳</span></span>
+            </button>
+          </article>
+          <article class="person-card">
+            <button class="person-open" type="button" data-profile="profile-juani" aria-haspopup="dialog" aria-controls="profile-juani">
+              <span class="person-art"><img src="./assets/equipo/juani-personaje.webp" alt="" width="320" height="395" loading="lazy" decoding="async" /></span>
+              <span class="person-name">Juani Cersósimo <span class="person-star" aria-hidden="true">✳</span></span>
+            </button>
+          </article>
+          <article class="person-card">
+            <button class="person-open" type="button" data-profile="profile-tomi" aria-haspopup="dialog" aria-controls="profile-tomi">
+              <span class="person-art"><img src="./assets/equipo/tomi-personaje.webp" alt="" width="316" height="394" loading="lazy" decoding="async" /></span>
+              <span class="person-name">Tomi Palasi <span class="person-star" aria-hidden="true">✳</span></span>
+            </button>
+          </article>
         </div>
         <div class="about-divider" aria-hidden="true"><span></span><b>✳</b><span></span></div>
       </section>
@@ -113,7 +133,7 @@
               </div>
             </li>
             <li class="contact-person">
-              <h3>Juani Cersosimo</h3>
+              <h3>Juani Cersósimo</h3>
               <div class="contact-links">
                 <a class="contact-email" href="mailto:juanignacioc02@gmail.com">juanignacioc02@gmail.com</a>
               </div>
@@ -137,5 +157,65 @@
       <p>© <span id="year">2026</span> Amarg* Obrero · Cuatro nombres, un pulso.</p>
     </footer>
 
+
+    <dialog class="profile-dialog" id="profile-dani" aria-labelledby="profile-dani-name">
+      <form class="profile-actions" method="dialog">
+        <button class="profile-close" type="submit" autofocus>Cerrar <span aria-hidden="true">×</span></button>
+      </form>
+      <div class="profile-content">
+        <div class="profile-bio">
+          <h2 id="profile-dani-name">Dani Pedraza</h2>
+          <p>Hola, Soy Daniel Santiago Pedraza Guarnizo, aunque la mayoría me conoce como Dani, un colombiano, bogotano y actualmente residente en Buenos Aires. Apasionado por el fútbol, el rap, el mate y todas aquellas expresiones culturales capaces de reunir personas y construir historias.</p>
+          <p>En 2020 comencé a estudiar Publicidad en la Universidad Argentina de la Empresa (UADE) y actualmente continúo mi formación en el Curso Anual de Creatividad Integral en Brother Buenos Aires. Durante el confinamiento, descubrí Photoshop e Illustrator. Lo que empezó como una forma de explorar nuevas herramientas terminó llevándome a desarrollar un proyecto fotográfico independiente realizado desde el piso 18 de un edificio.</p>
+          <p>En 2024 participé en los Premios Obrar. Esa experiencia me confirmó que quería dedicarme a la parte creativa de la publicidad. Hoy sigo buscando historias, convencido de que las mejores ideas suelen aparecer en esos espacios donde las personas se reúnen.</p>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="profile-dialog" id="profile-fran" aria-labelledby="profile-fran-name">
+      <form class="profile-actions" method="dialog">
+        <button class="profile-close" type="submit" autofocus>Cerrar <span aria-hidden="true">×</span></button>
+      </form>
+      <div class="profile-content profile-content--portrait">
+        <img class="profile-photo" src="./assets/equipo/fran-foto.webp" alt="Foto de Fran Rodriguez" width="633" height="950" loading="lazy" decoding="async" />
+        <div class="profile-bio">
+          <h2 id="profile-fran-name">Fran Rodriguez</h2>
+          <p>Un entrerriano que disfruta viajar y conocer el mundo, aunque por ahora vivo en Capital. Hincha de Boca.</p>
+          <p>Me gusta el deporte, caminar, el arte y todo lo que mantenga a la cabeza y el cuerpo en movimiento. También las cámaras y la música: me encanta hacer videoclips, documentar mi vida y ponerle música de fondo. Una vez intenté hacer música y es re difícil, así que eso se lo dejo a los que saben.</p>
+          <p>Nunca me gustó mucho el cine, pero estudié cine… o mejor dicho: “Producción y Realización Audiovisual”. Trabajé en televisión, radio, medios y redes. También organizó una fiesta muy divertida y supe ser un vendedor bastante exitoso en Facebook Marketplace.</p>
+          <p>Por suerte, en 2026 encontré el mundo de la publicidad. Hoy estoy en Brother, donde conocí a Dani, Juani, Tomi y a un montón de creativos talentosos. Es un lugar hermoso para impulsar la creatividad y las buenas ideas (algunas no tanto), y me pone muy contento lo que pudimos hacer juntos y lo que van a encontrar en esta carpeta.</p>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="profile-dialog" id="profile-juani" aria-labelledby="profile-juani-name">
+      <form class="profile-actions" method="dialog">
+        <button class="profile-close" type="submit" autofocus>Cerrar <span aria-hidden="true">×</span></button>
+      </form>
+      <div class="profile-content">
+        <div class="profile-bio">
+          <h2 id="profile-juani-name">Juani Cersósimo</h2>
+          <p>Me llamo Juan Ignacio Cersósimo, soy periodista, actualmente estoy estudiando publicidad en la universidad de Palermo y realizando el curso de creatividad integral en Brother.</p>
+          <p>Siempre me interesaron las historias y las personas que encuentran formas originales de contarlas. Me fascina cómo algo que, a simple vista, puede parecer cotidiano o poco relevante, puede transformarse en una idea atractiva cuando se lo mira desde otro ángulo. Por eso disfruto de la creatividad que conecta con la gente, sorprende y, muchas veces, utiliza el humor como una herramienta para generar cercanía.</p>
+          <p>El fútbol, la música y los comportamientos culturales son algunas de mis principales fuentes de inspiración. Me gusta observar cómo las personas construyen vínculos con aquello que les apasiona y trasladar esas observaciones a mis proyectos. Soy una persona organizada, curiosa y detallista, que busca combinar estrategia y creatividad para encontrar ideas simples, relevantes y memorables.</p>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="profile-dialog" id="profile-tomi" aria-labelledby="profile-tomi-name">
+      <form class="profile-actions" method="dialog">
+        <button class="profile-close" type="submit" autofocus>Cerrar <span aria-hidden="true">×</span></button>
+      </form>
+      <div class="profile-content profile-content--portrait">
+        <img class="profile-photo" src="./assets/equipo/tomi-foto.webp" alt="Foto de Tomi Palasi" width="712" height="950" loading="lazy" decoding="async" />
+        <div class="profile-bio">
+          <h2 id="profile-tomi-name">Tomi Palasi</h2>
+          <p>Esquelense de nacimiento. La vida me fue llevando por diferentes partes del mapa como Trelew (Chubut), Mar del Plata (Buenos Aires), 25 de Mayo (Buenos Aires) y finalmente, hoy tiro ideas desde Parque Chacabuco (Capital Federal).</p>
+          <p>En el camino estudié Diseño Industrial y Desarrollo Web, una mezcla rara que me dejó una obsesión: desarmar la realidad para volverla a armar con un toque de ingenio, estética, humor y funcionalidad.</p>
+          <p>Me gustan los tatuajes, el ski, el surf, el bodyboard y la naturaleza. Cuando no estoy maquinando ideas o escuchando música, me meto en partidas de rol de mesa, un espacio donde la cabeza explota sin límites en cada decisión. En mis tiempos libres me dedico a pensar conceptos cómicos y ver cómo bajarlos a la realidad.</p>
+          <p>Actualmente estudio en Brother Buenos Aires, el lugar donde lo encontré al Checha (Fran) y al espacio para potenciar todo esto. Creo en las buenas ideas, en el trabajo en dupla y en cranear proyectos copados que valgan la pena.</p>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>
