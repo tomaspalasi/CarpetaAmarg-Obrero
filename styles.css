@@ -43,27 +43,24 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .nav-link:hover::after, .nav-link.is-current::after { transform: scaleX(1); }
 .brand { z-index: 1; display: flex; align-items: center; justify-content: center; width: clamp(240px, 30vw, 360px); height: 100px; line-height: 0; transition: transform .25s ease; }
 .brand:hover { transform: rotate(-1.5deg) scale(1.03); }
-.brand img { display: block; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
-.footer-brand img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
+.brand img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.footer-brand img { display: block; width: 100%; height: auto; }
 .menu-toggle, .mobile-nav { display: none; }
 
 .hero { position: relative; overflow: hidden; padding: 34px clamp(18px, 4vw, 60px) 22px; text-align: center; }
 .hero-kicker { margin: 0 0 3px; color: var(--ink); font-family: var(--serif); font-size: clamp(14px, 2.1vw, 25px); letter-spacing: .045em; text-transform: uppercase; }
 .hero h1 { position: relative; z-index: 1; margin: 0 0 -11px; color: var(--red); font-family: var(--display); font-size: clamp(60px, 12.9vw, 174px); font-weight: 700; letter-spacing: -.045em; line-height: .9; text-transform: uppercase; text-shadow: 1px 1px 0 rgba(255, 247, 223, .45); }
 .hero h1 span { display: inline-block; }
-.hero-stage { position: relative; width: min(1280px, 100%); min-height: clamp(310px, 42vw, 520px); margin: 0 auto; isolation: isolate; text-align: left; }
-.hero-backdrop { position: absolute; z-index: -2; inset: 0; background: linear-gradient(90deg, rgba(245, 235, 205, .12), rgba(245, 235, 205, .02) 55%, rgba(245, 235, 205, .78) 80%), url('/manus-storage/async-images/4v2SGRElHLuTLkAD8NlRuQ/image-1.webp') center 52% / cover no-repeat; clip-path: polygon(0 8%, 10% 0, 90% 0, 100% 8%, 98% 92%, 81% 100%, 7% 97%); }
-.hero-cast-placeholder { position: absolute; left: 7%; bottom: 14%; width: 48%; min-height: 46%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; border: 1px dashed rgba(24, 59, 43, .43); border-radius: 47% 53% 8% 8% / 34% 35% 8% 8%; color: var(--ink); background: rgba(255, 246, 223, .81); text-align: center; }
-.placeholder-star { color: var(--red); font-size: clamp(35px, 6vw, 66px); animation: slow-spin 28s linear infinite; }
-.hero-cast-placeholder strong { font-family: var(--serif); font-size: clamp(20px, 3.2vw, 38px); line-height: 1.05; }
-.hero-cast-placeholder small { color: #6d6956; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
-.hero-intro { position: absolute; right: 1%; bottom: 18%; width: min(245px, 23%); padding: 0 8px; }
+.hero-stage { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(175px, 245px); align-items: center; gap: 12px clamp(20px, 4vw, 64px); width: min(1160px, 100%); margin: 0 auto; padding: 28px clamp(12px, 3vw, 40px) 8px; isolation: isolate; text-align: left; }
+.hero-backdrop { position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse at 38% 55%, rgba(209, 163, 68, .36), transparent 67%); }
+.hero-cast { display: block; width: min(100%, 780px); height: auto; justify-self: center; }
+.hero-intro { max-width: 245px; }
 .hero-intro h2 { margin: 0 0 11px; font-family: var(--serif); font-size: clamp(20px, 2.5vw, 30px); line-height: 1.1; }
 .hero-intro p { margin: 0 0 16px; color: #514e40; font-family: var(--serif); font-size: 13px; line-height: 1.42; }
 .pill-link { display: inline-flex; align-items: center; gap: 14px; padding: 11px 16px; border-radius: 99px; background: var(--ink); color: var(--paper-light); font-family: var(--serif); font-size: 11px; text-decoration: none; text-transform: uppercase; transition: transform .2s, background .2s; }
 .pill-link span { font-size: 18px; line-height: .7; }
 .pill-link:hover { transform: translateY(-2px); background: var(--red); }
-.hero-ribbon { position: absolute; right: 0; bottom: 2%; left: 0; display: flex; justify-content: center; align-items: center; gap: 20px; color: var(--ink); font-family: var(--serif); font-size: 10px; letter-spacing: .04em; }
+.hero-ribbon { grid-column: 1 / -1; display: flex; justify-content: center; align-items: center; gap: 20px; color: var(--ink); font-family: var(--serif); font-size: 10px; letter-spacing: .04em; }
 .hero-ribbon b { color: var(--red); font-family: var(--body); font-size: 21px; }
 .hero-ornament { position: absolute; z-index: 1; color: var(--ink); font-size: clamp(36px, 5.5vw, 72px); pointer-events: none; }
 .hero-ornament--left { left: 5%; top: 23%; transform: rotate(-14deg); }
@@ -162,7 +159,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .dialog-disclaimer { display: inline-block; border-top: 1px solid var(--line); padding-top: 10px; color: #766f59; font-family: var(--serif); font-size: 9px; text-transform: uppercase; }
 .reveal-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.75,.35,1); }
 .reveal-ready .reveal.is-visible { opacity: 1; transform: translateY(0); }
-@keyframes slow-spin { to { transform: rotate(360deg); } }
 
 @media (max-width: 900px) {
   .header-inner { min-height: 76px; padding-right: 23px; padding-left: 23px; }
@@ -180,7 +176,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 }
 @media (max-width: 680px) {
   .header-inner { display: flex; justify-content: center; min-height: 68px; padding: 3px 16px; }
-  .brand { width: min(242px, 66vw); height: 68px; }
+  .brand { width: min(184px, 52vw); height: 68px; }
   .desktop-nav { display: none; }
   .menu-toggle { position: absolute; right: 17px; display: flex; align-items: center; gap: 8px; border: 0; padding: 8px 0 8px 8px; background: transparent; color: var(--ink); font-family: var(--serif); font-size: 9px; text-transform: uppercase; cursor: pointer; }
   .menu-lines { display: flex; flex-direction: column; gap: 5px; }
@@ -193,18 +189,16 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .mobile-nav a:last-child { border: 0; }
   .hero { padding: 28px 15px 18px; }
   .hero-kicker { font-size: 13px; }
-  .hero h1 { margin-bottom: -4px; font-size: clamp(55px, 14.4vw, 97px); line-height: .94; }
-  .hero-stage { min-height: 470px; }
-  .hero-backdrop { background-position: 48% center; clip-path: polygon(0 4%, 10% 0, 94% 3%, 100% 10%, 99% 93%, 83% 100%, 4% 97%); }
-  .hero-cast-placeholder { left: 4%; bottom: 22%; width: 60%; min-height: 38%; gap: 7px; }
-  .hero-cast-placeholder strong { font-size: clamp(19px, 6vw, 29px); }
-  .hero-intro { right: 1%; bottom: 12%; width: 38%; padding: 0 3px; }
+  .hero h1 { margin-bottom: 0; font-size: clamp(36px, 12vw, 78px); line-height: .94; }
+  .hero-stage { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 15px 0 8px; text-align: center; }
+  .hero-cast { width: min(100%, 520px); }
+  .hero-intro { justify-self: center; }
   .hero-intro h2 { font-size: clamp(17px, 4.4vw, 22px); }
   .hero-intro p { font-size: 11px; }
   .pill-link { gap: 8px; padding: 9px 11px; font-size: 9px; }
   .hero-ribbon { gap: 9px; font-size: 8px; }
-  .hero-ornament--left { left: 4%; top: 24%; font-size: 36px; }
-  .hero-ornament--right { right: 3%; top: 27%; font-size: 38px; }
+  .hero-ornament--left { left: 4%; top: 28px; font-size: 22px; }
+  .hero-ornament--right { right: 4%; top: 28px; font-size: 22px; }
   .hero-rule { gap: 8px; margin-top: 12px; font-size: 7px; }
   .section-pad { padding-right: 19px; padding-left: 19px; }
   .works { padding-top: 18px; padding-bottom: 47px; }
