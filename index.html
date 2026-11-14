@@ -51,39 +51,22 @@
             <p>Somos Amarg* Obrero. Un grupo creativo con ideas, humor y ganas de hacer.</p>
             <a class="pill-link" href="#trabajos">Ver nuestros trabajos <span aria-hidden="true">→</span></a>
           </aside>
-          <div class="hero-ribbon" aria-hidden="true"><span>Ideas · imágenes · oficio</span><b>✳</b><span>Un grupo en movimiento</span></div>
         </div>
-        <div class="hero-rule"><span></span><span>Amarg* Obrero · desde la mesa de trabajo</span><span></span></div>
       </section>
 
       <section class="works paper-texture section-pad" id="trabajos" aria-labelledby="works-title">
         <div class="section-heading section-heading--works">
           <h2 id="works-title">Trabajos</h2>
-          <span class="heading-divider" aria-hidden="true"></span>
-          <p>Una primera pared de imágenes para abrir el archivo. Las piezas que ves son estudios visuales de muestra, no trabajos publicados del grupo.</p>
-          <a class="outline-link" href="#trabajos">Ver el archivo <span aria-hidden="true">→</span></a>
         </div>
-        <div class="work-gallery">
+        <div class="work-gallery"></div>
+        <template id="work-card-template">
           <article class="work-card">
-            <button class="work-open" type="button" data-work="0" aria-label="Ampliar estudio visual 01: A cielo abierto">
-              <span class="work-image-wrap"><img src="/manus-storage/async-images/4v2SGRElHLuTLkAD8NlRuQ/image-2.webp" alt="Paisaje montañoso de muestra con tintas rojas, ocres y verdes" loading="lazy" /><span class="work-chip">Estudio visual</span><span class="work-open-icon" aria-hidden="true">↗</span></span>
-              <span class="work-caption"><span><strong>A cielo abierto</strong><small>Imagen editorial · Muestra</small></span><span class="work-arrow" aria-hidden="true">→</span></span>
+            <button class="work-open" type="button" aria-haspopup="dialog">
+              <span class="work-image-wrap"><img alt="" loading="lazy" decoding="async" /><span class="work-open-icon" aria-hidden="true">↗</span></span>
+              <span class="work-caption"><span><strong></strong><small></small></span><span class="work-arrow" aria-hidden="true">→</span></span>
             </button>
           </article>
-          <article class="work-card work-card--middle">
-            <button class="work-open" type="button" data-work="1" aria-label="Ampliar estudio visual 02: La mesa">
-              <span class="work-image-wrap"><img src="/manus-storage/async-images/4v2SGRElHLuTLkAD8NlRuQ/image-3.webp" alt="Cámara analógica en una composición editorial de muestra" loading="lazy" /><span class="work-chip">Estudio visual</span><span class="work-open-icon" aria-hidden="true">↗</span></span>
-              <span class="work-caption"><span><strong>La mesa</strong><small>Proceso · Muestra</small></span><span class="work-arrow" aria-hidden="true">→</span></span>
-            </button>
-          </article>
-          <article class="work-card">
-            <button class="work-open" type="button" data-work="2" aria-label="Ampliar estudio visual 03: Un símbolo">
-              <span class="work-image-wrap"><img src="/manus-storage/async-images/4v2SGRElHLuTLkAD8NlRuQ/image-4.webp" alt="Bolso de lona de muestra rodeado de recortes botánicos" loading="lazy" /><span class="work-chip">Estudio visual</span><span class="work-open-icon" aria-hidden="true">↗</span></span>
-              <span class="work-caption"><span><strong>Un símbolo</strong><small>Identidad visual · Muestra</small></span><span class="work-arrow" aria-hidden="true">→</span></span>
-            </button>
-          </article>
-        </div>
-        <p class="works-note"><span aria-hidden="true">✳</span> Estos visuales son pruebas de estilo para la página. Se reemplazarán o complementarán cuando compartan trabajos reales.</p>
+        </template>
       </section>
 
       <section class="about paper-texture section-pad" id="nosotros" aria-labelledby="about-title">
@@ -119,8 +102,15 @@
 
     <dialog class="work-dialog" id="work-dialog" aria-labelledby="dialog-title">
       <button class="dialog-close" type="button" aria-label="Cerrar detalle">Cerrar <span aria-hidden="true">×</span></button>
-      <img class="dialog-image" id="dialog-image" src="" alt="" />
-      <div class="dialog-body"><p class="eyebrow" id="dialog-kicker"></p><h2 id="dialog-title"></h2><p id="dialog-description"></p><span class="dialog-disclaimer">Estudio visual de muestra · No es una obra publicada del grupo</span></div>
+      <div class="dialog-body">
+        <p class="eyebrow" id="dialog-kicker"></p>
+        <h2 id="dialog-title"></h2>
+        <p class="dialog-subtitle" id="dialog-subtitle"></p>
+        <img class="dialog-image dialog-cover" id="dialog-cover" alt="" decoding="async" />
+        <p id="dialog-description"></p>
+        <a class="pill-link dialog-video" id="dialog-video" target="_blank" rel="noopener noreferrer" hidden>Ver video en YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="dialog-visuals" id="dialog-visuals"></div>
     </dialog>
   </body>
 </html>
