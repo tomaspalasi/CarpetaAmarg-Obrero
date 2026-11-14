@@ -64,24 +64,6 @@ document.addEventListener('click', (event) => {
   showSection(link.hash, true);
 });
 
-const form = document.querySelector('#contact-form');
-const formStatus = document.querySelector('#form-status');
-const contactEmail = ''; // Completar con la dirección real del grupo cuando esté disponible.
-
-form?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  if (!form.reportValidity()) return;
-  if (!contactEmail) {
-    if (formStatus) formStatus.textContent = 'El mensaje quedó listo, pero falta configurar el correo real del grupo para poder enviarlo.';
-    return;
-  }
-
-  const data = new FormData(form);
-  const subject = `Consulta para Amarg* Obrero — ${String(data.get('name')).trim()}`;
-  const body = `${String(data.get('message')).trim()}\n\nResponder a: ${String(data.get('email')).trim()}`;
-  window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-});
-
 const year = document.querySelector('#year');
 if (year) year.textContent = String(new Date().getFullYear());
 

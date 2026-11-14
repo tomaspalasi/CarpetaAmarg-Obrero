@@ -10,9 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=project-carousel" />
-    <script src="./projects.js?v=local-images" defer></script>
-    <script src="./app.js?v=project-pages" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=team-contacts" />
+    <script src="./projects.js?v=team-contacts" defer></script>
+    <script src="./app.js?v=team-contacts" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -83,15 +83,51 @@
       </section>
 
       <section class="contact paper-texture section-pad" id="contacto" aria-labelledby="contact-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" class="contact-icons" aria-hidden="true">
+          <symbol id="linkedin-icon" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.447-2.136 2.94v5.666H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.266 2.37 4.266 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </symbol>
+        </svg>
         <div class="contact-layout">
-          <div class="contact-copy"><p class="eyebrow">04 / Contacto</p><h2 id="contact-title">Hablemos.</h2><p>¿Tenés un proyecto, una idea o simplemente querés charlar? Escribinos y lo ponemos sobre la mesa.</p><p class="contact-disclaimer">El correo o perfil del grupo todavía no fue compartido.</p></div>
-          <form class="contact-form" id="contact-form">
-            <label for="name">Tu nombre</label><input id="name" name="name" autocomplete="name" required placeholder="¿Cómo te llamás?" />
-            <label for="email">Tu correo</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="vos@correo.com" />
-            <label for="message">¿Qué tenés en mente?</label><textarea id="message" name="message" rows="3" required placeholder="Un proyecto, una idea, una pregunta…"></textarea>
-            <button class="submit-button" type="submit">Escribirnos <span aria-hidden="true">→</span></button>
-            <p class="form-status" id="form-status" aria-live="polite">Formulario en preparación: falta configurar el contacto real.</p>
-          </form>
+          <div class="contact-copy">
+            <h2 id="contact-title">Hablemos.</h2>
+            <p>¿Tenés un proyecto, una idea o simplemente querés charlar? Escribinos y lo ponemos sobre la mesa.</p>
+          </div>
+          <ul class="contact-list">
+            <li class="contact-person">
+              <h3>Dani Pedraza</h3>
+              <div class="contact-links">
+                <a class="contact-email" href="mailto:daniipedraza03@gmail.com">daniipedraza03@gmail.com</a>
+                <a class="contact-linkedin" href="https://www.linkedin.com/in/danipedraza/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Dani Pedraza">
+                  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><use href="#linkedin-icon" /></svg>
+                </a>
+              </div>
+            </li>
+            <li class="contact-person">
+              <h3>Fran Rodriguez</h3>
+              <div class="contact-links">
+                <a class="contact-email" href="mailto:franrodriguezprod@gmail.com">franrodriguezprod@gmail.com</a>
+                <a class="contact-linkedin" href="https://www.linkedin.com/in/francisco-rodriguez-945821285/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Fran Rodriguez">
+                  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><use href="#linkedin-icon" /></svg>
+                </a>
+              </div>
+            </li>
+            <li class="contact-person">
+              <h3>Juani Cersosimo</h3>
+              <div class="contact-links">
+                <a class="contact-email" href="mailto:juanignacioc02@gmail.com">juanignacioc02@gmail.com</a>
+              </div>
+            </li>
+            <li class="contact-person">
+              <h3>Tomi Palasi</h3>
+              <div class="contact-links">
+                <a class="contact-email" href="mailto:tomi.palasi@gmail.com">tomi.palasi@gmail.com</a>
+                <a class="contact-linkedin" href="https://www.linkedin.com/in/tom%C3%A1s-juli%C3%A1n-palasi-44810b251/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Tomi Palasi">
+                  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><use href="#linkedin-icon" /></svg>
+                </a>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
     </main>

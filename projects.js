@@ -92,33 +92,34 @@ if (projectDetail) {
     document.querySelector('#project-subtitle').textContent = project.subtitle;
     document.querySelector('#project-description').textContent = project.description;
 
-    const images = project.boards.length ? project.boards : [project.image];
-    const gallery = document.querySelector('#project-gallery');
-    const cover = document.querySelector('#project-cover');
-    const controls = document.querySelector('#gallery-controls');
-    const count = document.querySelector('#gallery-count');
-    let imageIndex = 0;
+    if (project.boards.length) {
+      const images = project.boards;
+      const gallery = document.querySelector('#project-gallery');
+      const cover = document.querySelector('#project-cover');
+      const controls = document.querySelector('#gallery-controls');
+      const count = document.querySelector('#gallery-count');
+      let imageIndex = 0;
 
-    function showImage(step) {
-      imageIndex = (imageIndex + step + images.length) % images.length;
-      cover.alt = project.boards.length
-        ? `Pieza ${imageIndex + 1} de ${project.title}`
-        : `Portada de ${project.title}`;
-      cover.src = images[imageIndex];
-      count.textContent = `${imageIndex + 1} de ${images.length}`;
-    }
+      function showImage(step) {
+        imageIndex = (imageIndex + step + images.length) % images.length;
+        cover.alt = `Pieza ${imageIndex + 1} de ${project.title}`;
+        cover.src = images[imageIndex];
+        count.textContent = `${imageIndex + 1} de ${images.length}`;
+      }
 
-    showImage(0);
-    if (images.length > 1) {
-      gallery.classList.add('has-controls');
-      controls.hidden = false;
-      document.querySelector('#gallery-prev').addEventListener('click', () => showImage(-1));
-      document.querySelector('#gallery-next').addEventListener('click', () => showImage(1));
-      controls.addEventListener('keydown', (event) => {
-        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-        event.preventDefault();
-        showImage(event.key === 'ArrowLeft' ? -1 : 1);
-      });
+      showImage(0);
+      gallery.hidden = false;
+      if (images.length > 1) {
+        gallery.classList.add('has-controls');
+        controls.hidden = false;
+        document.querySelector('#gallery-prev').addEventListener('click', () => showImage(-1));
+        document.querySelector('#gallery-next').addEventListener('click', () => showImage(1));
+        controls.addEventListener('keydown', (event) => {
+          if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+          event.preventDefault();
+          showImage(event.key === 'ArrowLeft' ? -1 : 1);
+        });
+      }
     }
 
     if (project.youtube) {
@@ -129,8 +130,7 @@ if (projectDetail) {
       player.title = `Video de ${project.title}`;
       document.querySelector('#project-youtube').href = project.youtube;
       video.hidden = false;
-      document.querySelector('#project-video-link').hidden = false;
-      if (!project.boards.length) video.after(gallery);
+      document.querySelector('#project-video-link').hidden = !project.boards.length;
     }
 
     projectDetail.hidden = false;
