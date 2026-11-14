@@ -70,10 +70,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .hero-kicker { margin: 0 0 3px; color: var(--ink); font-family: var(--serif); font-size: clamp(14px, 2.1vw, 25px); letter-spacing: .045em; text-transform: uppercase; }
 .hero h1 { position: relative; z-index: 1; margin: 0; color: var(--red-dark); font-family: var(--display); font-size: min(clamp(52px, 12.9vw, 174px), 17svh); font-weight: 700; letter-spacing: -.045em; line-height: .9; text-transform: uppercase; text-shadow: 1px 1px 0 rgba(255, 247, 223, .45); }
 .hero h1 span { display: inline-block; }
-.hero-stage { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(175px, 245px); align-items: center; gap: clamp(20px, 4vw, 64px); width: min(1160px, 100%); margin: 0 auto; padding: clamp(8px, 2.5svh, 24px) clamp(12px, 3vw, 40px) 0; isolation: isolate; text-align: left; }
+.hero-stage { position: relative;align-items: center; width: min(1160px, 100%); margin: 0 auto; padding: clamp(8px, 2.5svh, 24px) clamp(12px, 3vw, 40px) 0; isolation: isolate; text-align: left; }
 .hero-backdrop { position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse at 38% 55%, rgba(209, 163, 68, .36), transparent 67%); }
 .hero-cast { display: block; width: min(100%, 780px, 68svh); height: auto; justify-self: center; }
-.hero-intro { max-width: 245px; }
+.hero-intro { max-width: 245px; margin-left: 40%; margin-top: 2%;}
 .hero-intro h2 { margin: 0 0 11px; font-family: var(--serif); font-size: clamp(20px, 2.5vw, 30px); line-height: 1.1; }
 .hero-intro p { margin: 0 0 16px; color: #514e40; font-family: var(--serif); font-size: 13px; line-height: 1.42; }
 .pill-link { display: inline-flex; align-items: center; gap: 14px; padding: 11px 16px; border-radius: 99px; background: var(--ink); color: var(--paper-light); font-family: var(--serif); font-size: 11px; text-decoration: none; text-transform: uppercase; transition: transform .2s, background .2s; }
