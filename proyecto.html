@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5ebcd" />
+    <title>Proyecto | Amarg* Obrero</title>
+    <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./projects.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="project-header-inner">
+        <a class="project-back" href="./#trabajos"><span aria-hidden="true">←</span> Volver a Trabajos</a>
+        <a class="project-brand" href="./" aria-label="Amarg* Obrero, ir al inicio">
+          <img src="./assets/logo-amarg-obrero.webp" alt="" width="800" height="295" />
+        </a>
+      </div>
+    </header>
+
+    <main class="project-page">
+      <p id="project-status" role="status" hidden></p>
+      <article id="project-detail" hidden>
+        <header class="project-heading">
+          <p class="eyebrow" id="project-kicker"></p>
+          <h1 id="project-title"></h1>
+          <p class="project-subtitle" id="project-subtitle"></p>
+          <a class="pill-link project-video-link" id="project-video-link" href="#video" hidden>Ver video <span aria-hidden="true">↓</span></a>
+        </header>
+        <img class="project-cover" id="project-cover" alt="" decoding="async" hidden />
+        <section class="project-video" id="video" aria-labelledby="video-title" hidden>
+          <h2 id="video-title">Video</h2>
+          <iframe id="project-player" title="Video del proyecto" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <a class="project-youtube" id="project-youtube" target="_blank" rel="noopener noreferrer">Abrir en YouTube <span aria-hidden="true">↗</span></a>
+        </section>
+        <p class="project-description" id="project-description"></p>
+        <div class="project-gallery" id="project-gallery"></div>
+      </article>
+    </main>
+  </body>
+</html>

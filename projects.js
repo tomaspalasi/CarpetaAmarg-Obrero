@@ -1,0 +1,131 @@
+const projects = [
+  {
+    id: 1,
+    title: 'EN ALGÚN LUGAR DE IBEROAMÉRICA',
+    subtitle: 'Festival El Ojo de Iberoamérica',
+    year: 2026,
+    category: 'Creatividad',
+    description: 'En Algún Lugar de Iberoamérica es una idea desarrollada para celebrar los 30 años del Festival El Ojo de Iberoamérica, que busca reconocer los espacios cotidianos donde nacen las grandes ideas. La propuesta parte de una observación: celebramos las ideas cuando reciben un premio, pero pocas veces conocemos el lugar donde surgieron. A partir de esto, convocamos a creativos ganadores del festival para que compartieran fotografías y testimonios de los espacios donde se les ocurrieron sus ideas premiadas. Con este material, desarrollamos una serie de piezas gráficas que retratan esos escenarios, desde una oficina o una cama hasta una ducha o un inodoro. El proyecto busca demostrar que la creatividad puede surgir en cualquier lugar, incluso en los más inesperados, e inspirar a las nuevas generaciones de creativos.',
+    image: 'https://i.imgur.com/YheYogG.jpeg',
+    boards: [
+      'https://i.imgur.com/YzAVVwM.jpeg',
+      'https://i.imgur.com/fUNdGV5.png',
+      'https://i.imgur.com/LJJZVAr.jpeg',
+      'https://i.imgur.com/pyfFF9e.jpeg',
+    ],
+    youtube: 'https://youtu.be/7UnsXOe6r2k',
+  },
+  {
+    id: 2,
+    title: 'COMO EN CASA, ESTÉS DONDE ESTÉS',
+    subtitle: 'Airbnb',
+    year: 2026,
+    category: 'Film / Creatividad',
+    description: 'Como en casa, estés donde estés es un film desarrollado para Airbnb que, a través del humor, busca transmitir la comodidad y familiaridad de sentirse en casa, incluso cuando estamos de viaje. La propuesta parte de una situación cotidiana con la que todos podemos identificarnos: ir al baño y sentir que no hay lugar más cómodo que el de nuestra propia casa. A partir de esta observación, el film juega con el contraste entre estar en un lugar desconocido y disfrutar de la confianza y privacidad del hogar. De manera simple y humorística, buscamos destacar uno de los principales atributos de Airbnb: la posibilidad de sentirte como en casa, estés donde estés.',
+    image: 'https://i.imgur.com/Ml1rtKD.png',
+    boards: [],
+    youtube: 'https://youtu.be/DiNkxuDQHPI',
+  },
+  {
+    id: 3,
+    title: 'HALLOWEEN',
+    subtitle: 'Monster Energy',
+    year: 2026,
+    category: 'Film / Creatividad',
+    description: 'Desarrollamos un film con motivo de Halloween, utilizando la marca Monster Energy como punto de partida. La propuesta consiste en un cortometraje que combina elementos del terror con situaciones humorísticas, jugando con el suspenso, la sorpresa y lo inesperado. Buscamos generar tensión y romperla con humor, creando una experiencia entretenida que conecta la identidad de Monster con el espíritu de Halloween.',
+    image: 'https://i.imgur.com/P5wkEmh.jpeg',
+    boards: [],
+    youtube: 'https://youtu.be/8fhWikJjE_Y',
+  },
+  {
+    id: 4,
+    title: 'P.V.N.I.',
+    subtitle: 'Caladryl',
+    year: 2026,
+    category: 'Diseño / Creatividad',
+    description: 'La propuesta consistió en desarrollar una pieza gráfica publicitaria para Caladryl, centrada en una situación cotidiana: la aparición de una picadura inesperada sin saber qué insecto la provocó. A partir de esa incertidumbre, se construyó el concepto creativo tomando como referencia el término O.V.N.I. (Objeto Volador No Identificado) y adaptándolo al universo de los insectos y las picaduras, dando origen a la idea de P.V.N.I. (Picador Volador No Identificado). El objetivo fue generar una comunicación con un tono creativo y humorístico, transformando una experiencia común en un concepto memorable que refuerza la necesidad de contar con Caladryl para aliviar las molestias ocasionadas por cualquier picadura, independientemente de su origen.',
+    image: 'https://i.imgur.com/1mOFw8p.png',
+    boards: [
+      'https://i.imgur.com/FwBQ9Ab.png',
+      'https://i.imgur.com/D3XgxHZ.png',
+      'https://i.imgur.com/upFmj71.png',
+    ],
+  },
+  {
+    id: 5,
+    title: 'QUILMES BOTELLÓN 0.0',
+    subtitle: 'Quilmes · Premios Martín Fierro',
+    year: 2026,
+    category: 'Diseño / Acción / Creatividad',
+    description: 'La consigna fue diseñar una activación y un nuevo producto para Quilmes en el marco de los premios Martín Fierro. Para salir del clásico patrocinio de marca y generar un impacto real en la cultura popular, creamos el “Botellón Quilmes 0.0”, un premio especial entregado a la categoría de Mejor Labor de Conducción. La idea nació de reinterpretar el festejo con champagne de la Fórmula 1, pero cruzándolo con un insight bien argentino: un juego de palabras entre la conducción televisiva y la conducción al volante. De este doble sentido nació el trofeo ideal: una cerveza sin alcohol para el mejor “conductor”. Así, a través del humor popular, logramos instalar el producto y promover el consumo responsable en el evento más visto del país.',
+    image: 'https://i.imgur.com/D3k2UQD.jpeg',
+    boards: ['https://i.imgur.com/P4ryydx.jpeg'],
+    youtube: 'https://youtu.be/j5tsiHB84Fg',
+  },
+];
+
+const workGallery = document.querySelector('.work-gallery');
+const workTemplate = document.querySelector('#work-card-template');
+
+if (workGallery && workTemplate) {
+  for (const project of projects) {
+    const card = workTemplate.content.cloneNode(true);
+    const link = card.querySelector('.work-open');
+    link.href = `./proyecto.html?id=${project.id}`;
+    link.setAttribute('aria-label', `${project.title} (abre en una pestaña nueva)`);
+    card.querySelector('img').src = project.image;
+    card.querySelector('strong').textContent = project.title;
+    card.querySelector('small').textContent = `${project.subtitle} · ${project.category} · ${project.year}`;
+    workGallery.append(card);
+  }
+}
+
+const projectDetail = document.querySelector('#project-detail');
+
+if (projectDetail) {
+  const id = new URLSearchParams(window.location.search).get('id');
+  const project = projects.find(({ id: projectId }) => String(projectId) === id);
+
+  if (project) {
+    document.title = `${project.title} | Amarg* Obrero`;
+    document.querySelector('#project-kicker').textContent = `${project.category} · ${project.year}`;
+    document.querySelector('#project-title').textContent = project.title;
+    document.querySelector('#project-subtitle').textContent = project.subtitle;
+    document.querySelector('#project-description').textContent = project.description;
+
+    const [board, ...additionalBoards] = project.boards;
+    if (board) {
+      const cover = document.querySelector('#project-cover');
+      cover.src = board;
+      cover.alt = `Board de ${project.title}`;
+      cover.hidden = false;
+    }
+
+    if (project.youtube) {
+      const video = document.querySelector('#video');
+      const videoId = new URL(project.youtube).pathname.slice(1);
+      const player = document.querySelector('#project-player');
+      player.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
+      player.title = `Video de ${project.title}`;
+      document.querySelector('#project-youtube').href = project.youtube;
+      video.hidden = false;
+      document.querySelector('#project-video-link').hidden = !board;
+    }
+
+    const gallery = document.querySelector('#project-gallery');
+    for (const [index, src] of additionalBoards.entries()) {
+      const image = document.createElement('img');
+      image.alt = `Pieza ${index + 2} de ${project.title}`;
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      image.src = src;
+      gallery.append(image);
+    }
+
+    projectDetail.hidden = false;
+  } else {
+    const status = document.querySelector('#project-status');
+    status.textContent = 'No encontramos ese proyecto.';
+    status.hidden = false;
+  }
+}

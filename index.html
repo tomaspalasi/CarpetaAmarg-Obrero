@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./projects.js" defer></script>
     <script src="./app.js" defer></script>
   </head>
   <body>
@@ -57,14 +58,15 @@
       <section class="works paper-texture section-pad" id="trabajos" aria-labelledby="works-title">
         <div class="section-heading section-heading--works">
           <h2 id="works-title">Trabajos</h2>
+          <p class="works-copy">Ideas que se hicieron imagen, palabra y alguna que otra locura.</p>
         </div>
         <div class="work-gallery"></div>
         <template id="work-card-template">
           <article class="work-card">
-            <button class="work-open" type="button" aria-haspopup="dialog">
+            <a class="work-open" target="_blank" rel="noopener">
               <span class="work-image-wrap"><img alt="" loading="lazy" decoding="async" /><span class="work-open-icon" aria-hidden="true">↗</span></span>
               <span class="work-caption"><span><strong></strong><small></small></span><span class="work-arrow" aria-hidden="true">→</span></span>
-            </button>
+            </a>
           </article>
         </template>
       </section>
@@ -100,17 +102,5 @@
       <p>© <span id="year">2026</span> Amarg* Obrero · Cuatro nombres, un pulso.</p>
     </footer>
 
-    <dialog class="work-dialog" id="work-dialog" aria-labelledby="dialog-title">
-      <button class="dialog-close" type="button" aria-label="Cerrar detalle">Cerrar <span aria-hidden="true">×</span></button>
-      <div class="dialog-body">
-        <p class="eyebrow" id="dialog-kicker"></p>
-        <h2 id="dialog-title"></h2>
-        <p class="dialog-subtitle" id="dialog-subtitle"></p>
-        <img class="dialog-image dialog-cover" id="dialog-cover" alt="" decoding="async" />
-        <p id="dialog-description"></p>
-        <a class="pill-link dialog-video" id="dialog-video" target="_blank" rel="noopener noreferrer" hidden>Ver video en YouTube <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="dialog-visuals" id="dialog-visuals"></div>
-    </dialog>
   </body>
 </html>
