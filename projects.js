@@ -2,7 +2,7 @@ const projects = [
   {
     id: 1,
     title: 'EN ALGÚN LUGAR DE IBEROAMÉRICA',
-    subtitle: 'Festival El Ojo de Iberoamérica',
+    subtitle: 'Ganador 1° Finalista Festival El Ojo de Iberoamérica 2026 Categoría Estudiantes',
     year: 2026,
     category: 'Creatividad',
     description: 'En Algún Lugar de Iberoamérica es una idea desarrollada para celebrar los 30 años del Festival El Ojo de Iberoamérica, que busca reconocer los espacios cotidianos donde nacen las grandes ideas. La propuesta parte de una observación: celebramos las ideas cuando reciben un premio, pero pocas veces conocemos el lugar donde surgieron. A partir de esto, convocamos a creativos ganadores del festival para que compartieran fotografías y testimonios de los espacios donde se les ocurrieron sus ideas premiadas. Con este material, desarrollamos una serie de piezas gráficas que retratan esos escenarios, desde una oficina o una cama hasta una ducha o un inodoro. El proyecto busca demostrar que la creatividad puede surgir en cualquier lugar, incluso en los más inesperados, e inspirar a las nuevas generaciones de creativos.',
