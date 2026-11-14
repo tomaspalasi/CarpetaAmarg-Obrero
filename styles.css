@@ -44,7 +44,6 @@ body::before {
   content: '';
 }
 main { flex: 1; }
-.home-active .site-footer { display: none; }
 .home-active main { display: flex; flex-direction: column; justify-content: center; }
 a { color: inherit; }
 button, input, textarea { font: inherit; }
@@ -73,7 +72,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .hero h1 span { display: inline-block; }
 .hero-stage { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(175px, 245px); align-items: center; gap: clamp(20px, 4vw, 64px); width: min(1160px, 100%); margin: 0 auto; padding: clamp(8px, 2.5svh, 24px) clamp(12px, 3vw, 40px) 0; isolation: isolate; text-align: left; }
 .hero-backdrop { position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse at 38% 55%, rgba(209, 163, 68, .36), transparent 67%); }
-.hero-cast { display: block; width: min(100%, 780px, 80svh); height: auto; justify-self: center; }
+.hero-cast { display: block; width: min(100%, 780px, 68svh); height: auto; justify-self: center; }
 .hero-intro { max-width: 245px; }
 .hero-intro h2 { margin: 0 0 11px; font-family: var(--serif); font-size: clamp(20px, 2.5vw, 30px); line-height: 1.1; }
 .hero-intro p { margin: 0 0 16px; color: #514e40; font-family: var(--serif); font-size: 13px; line-height: 1.42; }
@@ -100,8 +99,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .work-caption { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 5px 0; }
 .work-caption strong { display: block; font-family: var(--serif); font-size: clamp(16px, 2vw, 22px); font-weight: 400; }
 .work-caption small { display: block; margin-top: 2px; color: #726b56; font-family: var(--serif); font-size: 10px; }
-.work-arrow { font-size: 21px; transition: transform .2s ease; }
-.work-open:hover .work-arrow { transform: translateX(4px); color: var(--red); }
 
 .about { position: relative; overflow: hidden; padding-top: 37px; padding-bottom: 45px; }
 .about-topline { display: grid; grid-template-columns: auto 2px auto 1fr; gap: clamp(16px, 2.4vw, 33px); align-items: center; }
@@ -191,7 +188,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .hero-kicker { font-size: 13px; }
   .hero h1 { margin-bottom: 0; font-size: clamp(33px, 11vw, 70px); line-height: .94; }
   .hero-stage { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 10px 0 0; text-align: center; }
-  .hero-cast { width: min(100%, 520px, max(180px, calc((100svh - 330px) * 1.63))); }
+  .hero-cast { width: min(100%, 520px, max(156px, calc((100svh - 384px) * 1.63))); }
   .hero-intro { justify-self: center; }
   .hero-intro h2 { font-size: clamp(17px, 4.4vw, 22px); }
   .hero-intro p { margin-bottom: 11px; font-size: 11px; }
@@ -206,7 +203,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .work-caption { align-items: start; padding: 7px 2px 0; }
   .work-caption strong { font-size: clamp(14px, 4.1vw, 19px); }
   .work-caption small { font-size: 8px; }
-  .work-arrow { font-size: 17px; }
   .about { padding-top: 27px; padding-bottom: 32px; }
   .about-topline { grid-template-columns: auto 2px auto; gap: 11px; }
   .about-topline h2 { font-size: clamp(45px, 12vw, 77px); }
@@ -238,7 +234,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 680px) and (max-height: 480px) and (orientation: landscape) {
   .hero-stage { grid-template-columns: minmax(0, 1fr) minmax(150px, 1fr); }
   .hero h1 { font-size: clamp(33px, 12svh, 58px); }
-  .hero-cast { width: min(100%, 75svh); }
+  .hero-cast { width: min(100%, 60svh); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -256,12 +252,24 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .project-subtitle { margin: 12px 0 0; font-family: var(--serif); font-size: clamp(18px, 3vw, 25px); }
 .project-video-link { margin-top: 16px; }
 .project-video-link[hidden] { display: none; }
-.project-cover, .project-gallery img { display: block; width: 100%; height: auto; }
-.project-cover[hidden] { display: none; }
 .project-video { margin-block: clamp(24px, 5vw, 48px); scroll-margin-top: 84px; }
 .project-video h2 { margin: 0 0 12px; font-family: var(--display); font-size: clamp(24px, 5vw, 40px); line-height: 1; text-transform: uppercase; }
 .project-video iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; background: var(--ink-deep); }
 .project-youtube { display: inline-block; margin-top: 10px; font-family: var(--serif); text-underline-offset: 3px; }
 .project-description { max-width: 70ch; margin: clamp(24px, 5vw, 48px) 0 0; font-size: clamp(15px, 2vw, 18px); line-height: 1.65; }
-.project-gallery { display: grid; gap: 24px; margin-top: 24px; }
-.project-gallery:empty { display: none; }
+.project-gallery { margin-block: 24px; }
+.project-cover { display: block; width: 100%; height: auto; max-height: 72svh; object-fit: contain; background: rgba(16, 42, 32, .07); }
+.project-gallery.has-controls .project-cover { height: clamp(220px, 56vw, 68svh); }
+.gallery-controls { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 12px; font-family: var(--serif); }
+.gallery-controls[hidden] { display: none; }
+.gallery-controls button { display: grid; min-width: 44px; min-height: 44px; place-items: center; border: 1px solid var(--ink); border-radius: 50%; background: var(--paper-light); color: var(--ink); cursor: pointer; font-size: 21px; }
+.gallery-controls button:hover { background: var(--ink); color: var(--paper-light); }
+
+.home-active .site-footer { padding-block: clamp(8px, 1.5svh, 16px); }
+.home-active .footer-brand { width: clamp(105px, 12vw, 156px); }
+@media (max-width: 680px) {
+  .home-active .site-footer { gap: 6px; }
+}
+@media (max-width: 680px) and (max-height: 480px) and (orientation: landscape) {
+  .home-active .site-footer { flex-direction: row; }
+}

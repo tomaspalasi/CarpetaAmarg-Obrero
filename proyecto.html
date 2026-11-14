@@ -8,8 +8,8 @@
     <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="./styles.css?v=project-pages" />
-    <script src="./projects.js?v=project-pages" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=project-carousel" />
+    <script src="./projects.js?v=project-carousel" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -30,14 +30,20 @@
           <p class="project-subtitle" id="project-subtitle"></p>
           <a class="pill-link project-video-link" id="project-video-link" href="#video" hidden>Ver video <span aria-hidden="true">↓</span></a>
         </header>
-        <img class="project-cover" id="project-cover" alt="" decoding="async" hidden />
+        <section class="project-gallery" id="project-gallery" aria-label="Imágenes del proyecto">
+          <img class="project-cover" id="project-cover" alt="" decoding="async" />
+          <div class="gallery-controls" id="gallery-controls" hidden>
+            <button id="gallery-prev" type="button" aria-label="Imagen anterior" aria-controls="project-cover">←</button>
+            <span id="gallery-count" role="status" aria-atomic="true"></span>
+            <button id="gallery-next" type="button" aria-label="Imagen siguiente" aria-controls="project-cover">→</button>
+          </div>
+        </section>
         <section class="project-video" id="video" aria-labelledby="video-title" hidden>
           <h2 id="video-title">Video</h2>
           <iframe id="project-player" title="Video del proyecto" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
           <a class="project-youtube" id="project-youtube" target="_blank" rel="noopener noreferrer">Abrir en YouTube <span aria-hidden="true">↗</span></a>
         </section>
         <p class="project-description" id="project-description"></p>
-        <div class="project-gallery" id="project-gallery"></div>
       </article>
     </main>
   </body>

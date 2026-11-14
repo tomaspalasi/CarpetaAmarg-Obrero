@@ -72,7 +72,6 @@ if (workGallery && workTemplate) {
     const card = workTemplate.content.cloneNode(true);
     const link = card.querySelector('.work-open');
     link.href = `./proyecto.html?id=${project.id}`;
-    link.setAttribute('aria-label', `${project.title} (abre en una pestaña nueva)`);
     card.querySelector('img').src = project.image;
     card.querySelector('strong').textContent = project.title;
     card.querySelector('small').textContent = `${project.subtitle} · ${project.category} · ${project.year}`;
@@ -93,12 +92,33 @@ if (projectDetail) {
     document.querySelector('#project-subtitle').textContent = project.subtitle;
     document.querySelector('#project-description').textContent = project.description;
 
-    const [board, ...additionalBoards] = project.boards;
-    if (board) {
-      const cover = document.querySelector('#project-cover');
-      cover.src = board;
-      cover.alt = `Board de ${project.title}`;
-      cover.hidden = false;
+    const images = project.boards.length ? project.boards : [project.image];
+    const gallery = document.querySelector('#project-gallery');
+    const cover = document.querySelector('#project-cover');
+    const controls = document.querySelector('#gallery-controls');
+    const count = document.querySelector('#gallery-count');
+    let imageIndex = 0;
+
+    function showImage(step) {
+      imageIndex = (imageIndex + step + images.length) % images.length;
+      cover.alt = project.boards.length
+        ? `Pieza ${imageIndex + 1} de ${project.title}`
+        : `Portada de ${project.title}`;
+      cover.src = images[imageIndex];
+      count.textContent = `${imageIndex + 1} de ${images.length}`;
+    }
+
+    showImage(0);
+    if (images.length > 1) {
+      gallery.classList.add('has-controls');
+      controls.hidden = false;
+      document.querySelector('#gallery-prev').addEventListener('click', () => showImage(-1));
+      document.querySelector('#gallery-next').addEventListener('click', () => showImage(1));
+      controls.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        showImage(event.key === 'ArrowLeft' ? -1 : 1);
+      });
     }
 
     if (project.youtube) {
@@ -109,17 +129,8 @@ if (projectDetail) {
       player.title = `Video de ${project.title}`;
       document.querySelector('#project-youtube').href = project.youtube;
       video.hidden = false;
-      document.querySelector('#project-video-link').hidden = !board;
-    }
-
-    const gallery = document.querySelector('#project-gallery');
-    for (const [index, src] of additionalBoards.entries()) {
-      const image = document.createElement('img');
-      image.alt = `Pieza ${index + 2} de ${project.title}`;
-      image.loading = 'lazy';
-      image.decoding = 'async';
-      image.src = src;
-      gallery.append(image);
+      document.querySelector('#project-video-link').hidden = false;
+      if (!project.boards.length) video.after(gallery);
     }
 
     projectDetail.hidden = false;
