@@ -1,5 +1,8 @@
 const menuButton = document.querySelector('.menu-toggle');
 const mobileNavigation = document.querySelector('#mobile-nav');
+const sections = [...document.querySelectorAll('#contenido > section[id]')];
+const navigationLinks = document.querySelectorAll('.site-header nav a, .footer-nav a');
+let activeSection;
 
 menuButton?.addEventListener('click', () => {
   const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
@@ -7,11 +10,57 @@ menuButton?.addEventListener('click', () => {
   mobileNavigation?.classList.toggle('is-open', !isOpen);
 });
 
-mobileNavigation?.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
+function showSection(hash, moveFocus = false) {
+  const section = sections.find(({ id }) => `#${id}` === hash) ?? sections[0];
+  if (section === activeSection && !moveFocus) return;
+  activeSection = section;
+
+  for (const panel of sections) {
+    panel.hidden = panel !== section;
+  }
+  for (const link of navigationLinks) {
+    if (link.hash === `#${section.id}`) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  }
+
+  if (mobileNavigation?.classList.contains('is-open')) {
     menuButton?.setAttribute('aria-expanded', 'false');
     mobileNavigation.classList.remove('is-open');
-  });
+  }
+  if (moveFocus) {
+    const heading = document.getElementById(section.getAttribute('aria-labelledby'));
+    if (heading) {
+      heading.tabIndex = -1;
+      heading.focus({ preventScroll: true });
+    }
+  }
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+showSection(window.location.hash);
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash !== '#contenido') showSection(window.location.hash, true);
+});
+
+document.addEventListener('click', (event) => {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+  const link = event.target.closest('a[href^="#"]');
+  if (!link) return;
+  if (link.hash === '#contenido') {
+    event.preventDefault();
+    document.getElementById('contenido').focus();
+    return;
+  }
+  if (!sections.some(({ id }) => link.hash === `#${id}`)) return;
+
+  event.preventDefault();
+  if (window.location.hash !== link.hash) window.history.pushState(null, '', link.hash);
+  showSection(link.hash, true);
 });
 
 const workDetails = [
