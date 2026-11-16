@@ -28,6 +28,19 @@ const projects = [
   },
   {
     id: 3,
+    title: 'THE UNEXPECTED EXPERT',
+    subtitle: 'IKEA',
+    year: 2026,
+    category: 'Film / Creatividad',
+    description: '**The Unexpected Expert** es un film desarrollado para IKEA que, a través del humor y lo absurdo, cuenta la historia de Jack, un monstruo que dedicó toda su vida a esconderse debajo de las camas. Tras ser trasladado a Japón, descubre que gran parte de la población duerme sobre futones en el piso, dejándolo sin trabajo y poniendo en crisis todo lo que sabía hacer. Después de años estudiando cada tipo de cama, diseño, rincón y tornillo, Jack se encuentra en el peor escenario posible. Sin embargo, lo que parecía el final de su carrera termina convirtiéndose en una nueva oportunidad: trabajar en IKEA. A partir de esta historia, buscamos conectar el universo de los monstruos con el de la marca, demostrando que incluso el conocimiento más inesperado puede convertirte en un verdadero experto en camas.',
+    image: 'https://i.imgur.com/Dyc1XlP.png',
+    boards: [ 'https://i.imgur.com/fZek7bY.jpeg',
+      'https://i.imgur.com/Z8fWKd5.jpeg',
+      'https://i.imgur.com/gG3gBng.jpeg',],
+    youtube: 'https://youtu.be/HSqpHwnKbNw',
+  },
+  {
+    id: 4,
     title: 'HALLOWEEN',
     subtitle: 'Monster Energy',
     year: 2026,
@@ -38,7 +51,7 @@ const projects = [
     youtube: 'https://youtu.be/8fhWikJjE_Y',
   },
   {
-    id: 4,
+    id: 5,
     title: 'P.V.N.I.',
     subtitle: 'Caladryl',
     year: 2026,
@@ -52,7 +65,7 @@ const projects = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: 'QUILMES BOTELLÓN 0.0',
     subtitle: 'Quilmes · Premios Martín Fierro',
     year: 2026,
