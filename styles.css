@@ -282,3 +282,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .profile-content--portrait { grid-template-columns: 1fr; }
   .profile-photo { width: min(100%, 340px); max-height: 46dvh; }
 }
+
+/* Espaciado entre reproductores de proyectos con varios videos */
+.project-video iframe:not(:first-of-type) {
+  margin-top: 28px;
+}
