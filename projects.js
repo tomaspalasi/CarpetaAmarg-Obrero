@@ -126,6 +126,12 @@ if (projectDetail) {
       const cover = document.querySelector('#project-cover');
       const controls = document.querySelector('#gallery-controls');
       const count = document.querySelector('#gallery-count');
+      const openLightbox = document.querySelector('#project-open-lightbox');
+      const lightbox = document.querySelector('#project-lightbox');
+      const lightboxImage = document.querySelector('#lightbox-image');
+      const lightboxCount = document.querySelector('#lightbox-count');
+      const lightboxPrev = document.querySelector('#lightbox-prev');
+      const lightboxNext = document.querySelector('#lightbox-next');
       let imageIndex = 0;
 
       function showImage(step) {
@@ -133,15 +139,44 @@ if (projectDetail) {
         cover.alt = `Pieza ${imageIndex + 1} de ${project.title}`;
         cover.src = images[imageIndex];
         count.textContent = `${imageIndex + 1} de ${images.length}`;
+
+        // El visor ampliado sigue la imagen elegida en la galería.
+        if (lightbox.open) {
+          lightboxImage.src = images[imageIndex];
+          lightboxImage.alt = cover.alt;
+          lightboxCount.textContent = `${imageIndex + 1} de ${images.length}`;
+        }
       }
 
       showImage(0);
       gallery.hidden = false;
+
+      openLightbox.addEventListener('click', () => {
+        lightbox.showModal();
+        showImage(0);
+      });
+
+      document.querySelector('#lightbox-close').addEventListener('click', () => lightbox.close());
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) lightbox.close();
+      });
+      lightbox.addEventListener('keydown', (event) => {
+        if (images.length < 2) return;
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          event.preventDefault();
+          showImage(event.key === 'ArrowLeft' ? -1 : 1);
+        }
+      });
+
       if (images.length > 1) {
         gallery.classList.add('has-controls');
         controls.hidden = false;
+        lightboxPrev.hidden = false;
+        lightboxNext.hidden = false;
         document.querySelector('#gallery-prev').addEventListener('click', () => showImage(-1));
         document.querySelector('#gallery-next').addEventListener('click', () => showImage(1));
+        lightboxPrev.addEventListener('click', () => showImage(-1));
+        lightboxNext.addEventListener('click', () => showImage(1));
         controls.addEventListener('keydown', (event) => {
           if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
           event.preventDefault();
