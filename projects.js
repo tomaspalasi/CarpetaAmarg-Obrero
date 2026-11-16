@@ -152,11 +152,36 @@ if (projectDetail) {
 
     if (project.youtube) {
       const video = document.querySelector('#video');
-      const videoId = new URL(project.youtube).pathname.slice(1);
       const player = document.querySelector('#project-player');
-      player.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
-      player.title = `Video de ${project.title}`;
-      document.querySelector('#project-youtube').href = project.youtube;
+      const link = document.querySelector('#project-youtube');
+
+      // Acepta una URL o varias, sin alterar los proyectos que tienen un solo video.
+      const urls = Array.isArray(project.youtube)
+        ? project.youtube
+        : [project.youtube];
+
+      urls.forEach((url, index) => {
+        const videoUrl = new URL(url);
+        const videoId = videoUrl.hostname.includes('youtu.be')
+          ? videoUrl.pathname.slice(1)
+          : videoUrl.searchParams.get('v');
+
+        const iframe = index === 0 ? player : player.cloneNode(false);
+        const youtubeLink = index === 0 ? link : link.cloneNode(true);
+
+        if (index > 0) {
+          iframe.removeAttribute('id');
+          youtubeLink.removeAttribute('id');
+        }
+
+        iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
+        iframe.title = `Video ${index + 1} de ${project.title}`;
+        youtubeLink.href = url;
+        youtubeLink.textContent = `Abrir video ${index + 1} en YouTube ↗`;
+
+        if (index > 0) video.append(iframe, youtubeLink);
+      });
+
       video.hidden = false;
       document.querySelector('#project-video-link').hidden = !project.boards.length;
     }
