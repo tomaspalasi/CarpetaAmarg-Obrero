@@ -46,7 +46,7 @@ const projects = [
     year: 2026,
     category: 'Film / Creatividad',
     description: 'Vos Decidís es una campaña desarrollada para IKEA que celebra la manera en que la Generación Z rompe con las convenciones del hogar y redefine el uso de los muebles. La propuesta parte de una observación: las nuevas generaciones no adaptan su vida a los espacios, sino que adaptan los espacios a su forma de vivir. A través de situaciones cotidianas, como mesadas que funcionan como sillas o sillas convertidas en percheros, buscamos demostrar que los muebles no tienen un único uso y que, en casa, las reglas las ponés vos.',
-    image: 'https://i.imgur.com/Dyc1XlP.png',
+    image: 'https://i.imgur.com/KzWXQEd.png',
     boards: [ 'https://i.imgur.com/EJadnZ0.jpeg',
       'https://i.imgur.com/DckW3Y4.jpeg',
       ],
