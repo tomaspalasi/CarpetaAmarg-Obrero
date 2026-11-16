@@ -8,8 +8,8 @@
     <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="./styles.css?v=team-profiles" />
-    <script src="./projects.js?v=team-contacts" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=image-lightbox-20261116" />
+    <script src="./projects.js?v=image-lightbox-20261116" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -31,7 +31,9 @@
           <a class="pill-link project-video-link" id="project-video-link" href="#video" hidden>Ver video <span aria-hidden="true">↓</span></a>
         </header>
         <section class="project-gallery" id="project-gallery" aria-label="Imágenes del proyecto" hidden>
-          <img class="project-cover" id="project-cover" alt="" decoding="async" />
+          <button class="project-cover-trigger" id="project-open-lightbox" type="button" aria-label="Ampliar imagen del proyecto" aria-haspopup="dialog" aria-controls="project-lightbox">
+            <img class="project-cover" id="project-cover" alt="" decoding="async" />
+          </button>
           <div class="gallery-controls" id="gallery-controls" hidden>
             <button id="gallery-prev" type="button" aria-label="Imagen anterior" aria-controls="project-cover">←</button>
             <span id="gallery-count" role="status" aria-atomic="true"></span>
@@ -46,5 +48,15 @@
         <p class="project-description" id="project-description"></p>
       </article>
     </main>
+
+    <dialog class="project-lightbox" id="project-lightbox" aria-label="Imagen ampliada del proyecto">
+      <button class="project-lightbox-close" id="lightbox-close" type="button" aria-label="Cerrar imagen ampliada">×</button>
+      <button class="project-lightbox-nav project-lightbox-prev" id="lightbox-prev" type="button" aria-label="Imagen anterior" hidden>←</button>
+      <figure class="project-lightbox-figure">
+        <img id="lightbox-image" alt="" />
+        <figcaption id="lightbox-count" aria-live="polite"></figcaption>
+      </figure>
+      <button class="project-lightbox-nav project-lightbox-next" id="lightbox-next" type="button" aria-label="Imagen siguiente" hidden>→</button>
+    </dialog>
   </body>
 </html>
