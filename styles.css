@@ -287,3 +287,86 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .project-video iframe:not(:first-of-type) {
   margin-top: 28px;
 }
+
+/* Visor ampliado de imágenes para cada proyecto */
+.project-cover-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+.project-cover-trigger:focus-visible { outline: 3px solid var(--red-dark); outline-offset: 4px; }
+.project-lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100dvh;
+  margin: 0;
+  padding: 60px 58px 30px;
+  border: 0;
+  background: rgba(5, 10, 9, .96);
+  color: #fff;
+  box-sizing: border-box;
+}
+.project-lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-lightbox::backdrop { background: rgba(0, 0, 0, .8); }
+.project-lightbox-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+}
+.project-lightbox-figure img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(1500px, calc(100vw - 152px));
+  max-height: calc(100dvh - 140px);
+  object-fit: contain;
+}
+.project-lightbox-figure figcaption { font-family: var(--serif); font-size: 14px; color: #ddd; }
+.project-lightbox-close,
+.project-lightbox-nav {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, .5);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .45);
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+.project-lightbox-close:hover,
+.project-lightbox-nav:hover { background: rgba(255, 255, 255, .22); }
+.project-lightbox-close { top: 15px; right: 18px; }
+.project-lightbox-nav { top: 50%; transform: translateY(-50%); font-size: 24px; }
+.project-lightbox-prev { left: 12px; }
+.project-lightbox-next { right: 12px; }
+.project-lightbox-nav[hidden] { display: none; }
+@media (max-width: 680px) {
+  .project-lightbox { padding: 65px 12px 80px; }
+  .project-lightbox-figure img {
+    max-width: calc(100vw - 24px);
+    max-height: calc(100dvh - 175px);
+  }
+  .project-lightbox-nav { top: auto; bottom: 16px; transform: none; }
+  .project-lightbox-prev { left: calc(50% - 66px); }
+  .project-lightbox-next { right: calc(50% - 66px); }
+}
